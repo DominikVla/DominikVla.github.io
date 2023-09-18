@@ -291,7 +291,6 @@ document.getElementById("jinn"), document.getElementById("mare"), document.getEl
 document.getElementById("oni"), document.getElementById("yokai"), document.getElementById("hantu"), document.getElementById("goryo"), document.getElementById("myling"), document.getElementById("onryo"),
 document.getElementById("twins"), document.getElementById("raiju"), document.getElementById("obake"), document.getElementById("mimic"), document.getElementById("moroi"), document.getElementById("deogen"),
 document.getElementById("thaye"));
-console.log (ghosts);
 
 // Resets the ghosts to being visible based on speed
 function resetGhosts() {
@@ -301,6 +300,28 @@ function resetGhosts() {
     i = i + 1;
   }
 }
+
+let dataGlobal;
+
+const getData = async () => {
+  const response = await fetch("./ghosts.json");
+  const data = await response.json();
+  dataGlobal = data;
+  return data;
+};
+
+
+(async () => {
+  await getData();
+  console.log(dataGlobal);
+  let len = Object.keys(dataGlobal.ghosts).length;
+  console.log(len);
+  value = "obj";
+  for (let i = 0; i < len; i++) {
+      value = Object.keys(dataGlobal.ghosts);
+      //console.log(value[i]);
+  }
+})();
 
 
 // Radio buttons input
@@ -360,6 +381,9 @@ fast.addEventListener('input', (e) => {
   ghosts[16].style.visibility = "hidden";
   ghosts[19].style.visibility = "hidden";
 })
+
+
+
 </script>
 
 </body>

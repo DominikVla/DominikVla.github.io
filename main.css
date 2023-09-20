@@ -110,29 +110,37 @@ input[type="radio"]:checked+label{
     font-weight: bold; 
     background-color: rgb(69, 69, 167);
 }
-/*! Firefox */    
-html{
-    scrollbar-color: #143e99 #2581d8;
-}
 
-/*! Other Browser */
+/*! Firefox Scrollbar*/    
 html {
     --scrollbarBG: #143e99;
     --thumbBG: #2581d8;
 
   }
-  body::-webkit-scrollbar {
-    width: 11px;
-  }
   body {
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
   }
-  body::-webkit-scrollbar-track {
-    background: var(--scrollbarBG);
-  }
-  body::-webkit-scrollbar-thumb {
-    background-color: var(--thumbBG) ;
-    border-radius: 6px;
-    border: 3px solid var(--scrollbarBG);
-  }
+ 
+/* Webkit browser scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #143e99;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2581d8;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #206eb8;
+} 

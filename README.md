@@ -11,3 +11,8 @@ This site has a description of each ghost along with a speed filter. It also inc
 
 - Add more basic info
 
+
+## License
+
+[MIT License](https://github.com/DominikVla/DominikVla.github.io/blob/main/LICENSE)
+

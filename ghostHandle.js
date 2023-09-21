@@ -1,94 +1,53 @@
-// Get Ghosts
+// Getting data from JSON file
 let dataGlobal;
-
 const getData = async () => {
-  const response = await fetch("./ghosts.json");
-  const data = await response.json();
-  dataGlobal = data;
-  return data;
+  if (!dataGlobal) {
+    const response = await fetch("./ghosts.json");
+    dataGlobal = await response.json();
+  }
+  return dataGlobal;
 };
 
-// Function to get Normal Ghosts
-function getNormSpeed() {
-  return Object.keys(dataGlobal.ghosts).filter(ghost => {
-    const speed = dataGlobal.ghosts[ghost].speed;
-    return (typeof speed === 'string' && speed === 'normal') ||
-           (Array.isArray(speed) && speed.length === 1 && speed[0] === 'normal');
-  });
-}
-
-// Function to get Normal/Fast Ghosts
-function getNormFastSpeed() {
-  return Object.keys(dataGlobal.ghosts).filter(ghost => {
-    const speed = dataGlobal.ghosts[ghost].speed;
-    return Array.isArray(speed) && speed.includes('normal') && speed.includes('fast') && !speed.includes('slow');     
-  });
-}
-
-// Function to get Slow/Fast Ghosts
-function getSlowFastSpeed() {
-  return Object.keys(dataGlobal.ghosts).filter(ghost => {
-    const speed = dataGlobal.ghosts[ghost].speed;
-    return Array.isArray(speed) && speed.includes('slow') && speed.includes('fast') && !speed.includes('normal');     
-  });
-}
-
-// Resets the ghosts to being visible based on speed
+// Function to reset the speed filter
 function resetGhosts() {
   const allGhostNames = Object.keys(dataGlobal.ghosts);
-
-  for (let i = 0; i < allGhostNames.length; i++) {
-    document.getElementById(allGhostNames[i]).style.visibility = "visible";
-  }
+  allGhostNames.forEach(ghost => {
+    document.getElementById(ghost).style.visibility = "visible";
+  });
 }
 
-// Radio buttons input
-const inp = document.getElementById("slow")
-const inp2 = document.getElementById("normal")
-const inp3 = document.getElementById("fast")
-
-// Ghost List Updating
-// Show only Slow Ghosts
-slow.addEventListener('input', (e) => {
-  (async () => {
-    await getData();
-    resetGhosts();
-    const normFast = getNormFastSpeed();
-    const norm = getNormSpeed();
-    for (i=0; i < normFast.length; i++) {
-      ghost = normFast[i];
+//  Applying Speed of Ghost
+function filterGhosts(filterFunction) {
+  resetGhosts();  // Reset ghosts to be visible before applying filters
+  const allGhostNames = Object.keys(dataGlobal.ghosts);
+  allGhostNames.forEach(ghost => {
+    if (!filterFunction(ghost)) {
       document.getElementById(ghost).style.visibility = "hidden";
     }
-    for (i=0; i < norm.length; i++) {
-      ghost = norm[i];
-      document.getElementById(ghost).style.visibility = "hidden";
-    }
-  })();  
-})
+  });
+}
 
-// Show only Normal Ghosts
-normal.addEventListener('input', (e) => {
-  (async () => {
-    await getData();
-    resetGhosts();
-    const slowFast = getSlowFastSpeed();
-    for (i=0; i < slowFast.length; i++) {
-      ghost = slowFast[i];
-      document.getElementById(ghost).style.visibility = "hidden";
-    }
-  })();  
-})
+// Adding ghosts to each speed
+const filters = {
+  slow: ghost => {
+    const speed = dataGlobal.ghosts[ghost].speed;
+    return (typeof speed === 'string' && speed === 'slow') || (Array.isArray(speed) && speed.includes('slow'));
+  },
+  normal: ghost => {
+    const speed = dataGlobal.ghosts[ghost].speed;
+    return (typeof speed === 'string' && speed === 'normal') || (Array.isArray(speed) && speed.includes('normal'));
+  },
+  fast: ghost => {
+    const speed = dataGlobal.ghosts[ghost].speed;
+    return (typeof speed === 'string' && speed === 'fast') || (Array.isArray(speed) && speed.includes('fast'));
+  }
+};
 
-// Show only Fast Ghosts
-fast.addEventListener('input', (e) => {
-  (async () => {
-    await getData();
-    resetGhosts()
-    const normSpeed = getNormSpeed();
-    for (i = 0; i < normSpeed.length; i++) {
-      ghost = normSpeed[i];
-      document.getElementById(ghost).style.visibility = "hidden";
-    }
-
-  })();
-})
+// Adding event listener for radio buttons
+getData().then(() => {
+  ['slow', 'normal', 'fast'].forEach(speed => {
+    document.getElementById(speed).addEventListener('input', () => {
+      filterGhosts(filters[speed]); // Applying Filter
+    });
+  });
+});

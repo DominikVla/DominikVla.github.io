@@ -1,17 +1,44 @@
-// Ghosts
-const ghosts = [];
-ghosts.push (document.getElementById("spirit"), document.getElementById("wraith"), document.getElementById("phantom"), document.getElementById("poltergeist"), document.getElementById("banshee"),
-document.getElementById("jinn"), document.getElementById("mare"), document.getElementById("revenant"), document.getElementById("shade"), document.getElementById("demon"),document.getElementById("yurei"),
-document.getElementById("oni"), document.getElementById("yokai"), document.getElementById("hantu"), document.getElementById("goryo"), document.getElementById("myling"), document.getElementById("onryo"),
-document.getElementById("twins"), document.getElementById("raiju"), document.getElementById("obake"), document.getElementById("mimic"), document.getElementById("moroi"), document.getElementById("deogen"),
-document.getElementById("thaye"));
+// Get Ghosts
+let dataGlobal;
+
+const getData = async () => {
+  const response = await fetch("./ghosts.json");
+  const data = await response.json();
+  dataGlobal = data;
+  return data;
+};
+
+// Function to get Normal Ghosts
+function getNormSpeed() {
+  return Object.keys(dataGlobal.ghosts).filter(ghost => {
+    const speed = dataGlobal.ghosts[ghost].speed;
+    return (typeof speed === 'string' && speed === 'normal') ||
+           (Array.isArray(speed) && speed.length === 1 && speed[0] === 'normal');
+  });
+}
+
+// Function to get Normal/Fast Ghosts
+function getNormFastSpeed() {
+  return Object.keys(dataGlobal.ghosts).filter(ghost => {
+    const speed = dataGlobal.ghosts[ghost].speed;
+    return Array.isArray(speed) && speed.includes('normal') && speed.includes('fast') && !speed.includes('slow');     
+  });
+}
+
+// Function to get Slow/Fast Ghosts
+function getSlowFastSpeed() {
+  return Object.keys(dataGlobal.ghosts).filter(ghost => {
+    const speed = dataGlobal.ghosts[ghost].speed;
+    return Array.isArray(speed) && speed.includes('slow') && speed.includes('fast') && !speed.includes('normal');     
+  });
+}
 
 // Resets the ghosts to being visible based on speed
 function resetGhosts() {
-  let i = 0;
-  while (i < ghosts.length){
-    ghosts[i].style.visibility = 'visible';
-    i = i + 1;
+  const allGhostNames = Object.keys(dataGlobal.ghosts);
+
+  for (let i = 0; i < allGhostNames.length; i++) {
+    document.getElementById(allGhostNames[i]).style.visibility = "visible";
   }
 }
 
@@ -20,55 +47,48 @@ const inp = document.getElementById("slow")
 const inp2 = document.getElementById("normal")
 const inp3 = document.getElementById("fast")
 
-console.log(ghosts[3]);
-
+// Ghost List Updating
+// Show only Slow Ghosts
 slow.addEventListener('input', (e) => {
-    resetGhosts()
-
-    ghosts[0].style.visibility = "hidden";
-    ghosts[1].style.visibility = "hidden";
-    ghosts[2].style.visibility = "hidden";
-    ghosts[3].style.visibility = "hidden";
-    ghosts[4].style.visibility = "hidden";
-    ghosts[5].style.visibility = "hidden";
-    ghosts[6].style.visibility = "hidden";
-    ghosts[8].style.visibility = "hidden";
-    ghosts[9].style.visibility = "hidden";
-    ghosts[10].style.visibility = "hidden";
-    ghosts[11].style.visibility = "hidden";
-    ghosts[12].style.visibility = "hidden";
-    ghosts[14].style.visibility = "hidden";
-    ghosts[15].style.visibility = "hidden";
-    ghosts[16].style.visibility = "hidden";
-    ghosts[18].style.visibility = "hidden";
-    ghosts[19].style.visibility = "hidden";
+  (async () => {
+    await getData();
+    resetGhosts();
+    const normFast = getNormFastSpeed();
+    const norm = getNormSpeed();
+    for (i=0; i < normFast.length; i++) {
+      ghost = normFast[i];
+      document.getElementById(ghost).style.visibility = "hidden";
+    }
+    for (i=0; i < norm.length; i++) {
+      ghost = norm[i];
+      document.getElementById(ghost).style.visibility = "hidden";
+    }
+  })();  
 })
 
+// Show only Normal Ghosts
 normal.addEventListener('input', (e) => {
-  resetGhosts()
-
-  ghosts[7].style.visibility = "hidden";
-  ghosts[13].style.visibility = "hidden";
-  ghosts[17].style.visibility = "hidden";
-  ghosts[21].style.visibility = "hidden";
-  ghosts[22].style.visibility = "hidden";
-  ghosts[23].style.visibility = "hidden";
+  (async () => {
+    await getData();
+    resetGhosts();
+    const slowFast = getSlowFastSpeed();
+    for (i=0; i < slowFast.length; i++) {
+      ghost = slowFast[i];
+      document.getElementById(ghost).style.visibility = "hidden";
+    }
+  })();  
 })
+
+// Show only Fast Ghosts
 fast.addEventListener('input', (e) => {
-  resetGhosts()
-  ghosts[0].style.visibility = "hidden";
-  ghosts[1].style.visibility = "hidden";
-  ghosts[2].style.visibility = "hidden";
-  ghosts[3].style.visibility = "hidden";
-  ghosts[4].style.visibility = "hidden";
-  ghosts[6].style.visibility = "hidden";
-  ghosts[8].style.visibility = "hidden";
-  ghosts[9].style.visibility = "hidden";
-  ghosts[10].style.visibility = "hidden";
-  ghosts[11].style.visibility = "hidden";
-  ghosts[12].style.visibility = "hidden";
-  ghosts[14].style.visibility = "hidden";
-  ghosts[15].style.visibility = "hidden";
-  ghosts[16].style.visibility = "hidden";
-  ghosts[19].style.visibility = "hidden";
+  (async () => {
+    await getData();
+    resetGhosts()
+    const normSpeed = getNormSpeed();
+    for (i = 0; i < normSpeed.length; i++) {
+      ghost = normSpeed[i];
+      document.getElementById(ghost).style.visibility = "hidden";
+    }
+
+  })();
 })

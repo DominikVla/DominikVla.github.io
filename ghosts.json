@@ -73,7 +73,7 @@
             "evidence": ["emf", "freezing", "box"]
         },
         "raiju": {
-            "speed": "normal",
+            "speed": ["normal", "fast"],
             "evidence": ["D.O.T.S", "emf", "orbs"]
         },
         "obake": {

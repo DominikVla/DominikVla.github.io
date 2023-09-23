@@ -12,7 +12,7 @@ const getData = async () => {
 function resetGhosts() {
   const allGhostNames = Object.keys(dataGlobal.ghosts);
   allGhostNames.forEach(ghost => {
-    document.getElementById(ghost).style.visibility = "visible";
+    document.getElementById(ghost).classList.remove('hideRow');
   });
 }
 
@@ -22,7 +22,7 @@ function filterGhosts(filterFunction) {
   const allGhostNames = Object.keys(dataGlobal.ghosts);
   allGhostNames.forEach(ghost => {
     if (!filterFunction(ghost)) {
-      document.getElementById(ghost).style.visibility = "hidden";
+      document.getElementById(ghost).classList.add('hideRow');
     }
   });
 }

@@ -144,3 +144,8 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: #206eb8;
 } 
+
+/* Make table rows invisible */
+.hideRow {
+    display: none;   
+}

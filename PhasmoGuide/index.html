@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Phasmophobia Helper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2></h2>
+          </div>
+        </div>
+        <div class="left-container" style="max-height: 900px; overflow: hidden;">
+          <div class="left-title" style="color: white; font-weight: bold;">Phas Helper</div>
+      
+          <!-- Speed Radio Buttons -->
+          <div class="left-section">
+            <form name="speed">
+            <input type="radio" id="slow" name="ghost_speed" value="slow">
+            <label class="btn btn-custom" for="slow">Slow</label>
+        
+            <input type="radio" id="normal" name="ghost_speed" value="normal">
+            <label class="btn btn-custom" for="normal">Normal Speed (1.75m/s)</label>
+        
+            <input type="radio" id="fast" name="ghost_speed" value="fast">
+            <label class="btn btn-custom" for="fast">Fast</label>
+        
+            <!-- Position the reset button below the radio buttons -->
+            <button type="reset" class="btn btn-primary center" onclick="resetGhosts()">Reset</button>
+          </form>
+        </div>
+        
+      
+          
+      
+          <!-- Basic Info Card -->
+          <div class="card left-card">
+              <div class="card-body">
+                  <h5 class="left-card-title">Basic Info</h5>
+                  <p class="left-card-text">
+                      You can keep your sanity up by:<br>
+                      • Holding a lit candle<br>
+                      • Being in a room with the main light on<br>
+                      • Avoid being touched by ghost events
+                  </p>
+              </div>
+          </div>
+      
+          <!-- 1/2 Evidence Guarantees Card -->
+          <div class="card left-card">
+              <div class="card-body">
+                  <h5 class="left-card-title">1/2 Evidence Guarantees</h5>
+                  <p class="left-card-text">
+                      Hantu gives Freezing<br>
+                      Goryo gives D.O.T.S<br>
+                      Obake gives UV<br>
+                      Moroi/Deo gives Spirit Box<br>
+                      Mimic gives orbs, not as evidence
+                  </p>
+              </div>
+          </div>
+      
+          <!-- ... Additional content ... -->
+      </div>
+      
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird scrollable-table-container ghost-info"><br>
+      <table class="w3-table w3-bordered w3-striped w3-border w3-dark-blue">
+          <thead>
+              <tr>
+                  <th>Ghost Name & Traits</th>
+                  <th>Description</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr id="spirit">
+                  <td><strong>Spirit | Hunts 50% (1.75m/s)</strong></td>
+                  <td>If sanity reaches 50% smudge the ghost room and if it doesn't hunt for the next 3 mins it might be a spirit, not guaranteed.</td>
+              </tr>
+
+              <tr id="wraith">
+                  <td><strong>Wraith | Hunts 50% (1.75m/s)</strong></td>
+                  <td>Can't step in salt. Can also randomly teleport to a player producing an EMF 2 reading when doing so.</td>
+              </tr>
+
+              <tr id="phantom">
+                <td><strong>Phantom | Hunts 50% (1.75m/s)</strong></td>
+                <td>Vanishes if you take a picture of it, spends more time being invisible during hunts.</td>
+              </tr>
+
+              <tr id="poltergeist">
+                <td><strong>Poltergeist | Hunts 50% (1.75m/s)</strong></td>
+                <td>Throws objects more frequently and at higher speeds. Is also the only ghost that can throw multiple objects at once.</td>
+              </tr>
+              
+              <tr id="banshee">
+                <td><strong>Banshee | Hunts 50% (1.75m/s)</strong></td>
+                <td>Has a chance to scream through paramic, will go only after target player unless they're outside, will only base sanity based off of target sanity.</td>
+              </tr>
+              
+              <tr id="jinn">
+                <td><strong></strong>Jinn | Hunts 50%  (1.7m/s - 2.5m/s)</td>
+                <td>Can not turn off the gen, speed winds up to 2.5m/s if a player is in LoS</td>
+              </tr>
+              
+              <tr id="mare">
+                <td><strong>Mare | Hunts 40%-60% (1.75m/s)</strong></td>
+                <td>Can instantly turn off lights you turn on, can't turn lights, if lights are on it hunts at 60%, if they're off it hunts at 40%. Has a chance to instantly turn off the lights a player turns on</td>
+              </tr>
+              
+              <tr id="revenant">
+                <td><strong>Revenant | Hunts 50% (1m/s - 3m/s)</strong></td>
+                <td>Will run at 3m/s if a player is sensed (Voice, LoS, Equipment) and will only slow down when it reaches the players last known location</td>
+              </tr>
+              
+              <tr id="shade">
+                <td><strong>Shade  | Hunts 35%  (1.75m/s)</strong></td>
+                <td>Can not produce EMF 2, 3 or 5 while someone else is in the room, can not hunt if someone is in ghost room. Generally a shy ghost.</td>
+              </tr>
+              
+              <tr id="demon">
+                <td><strong>Demon | Hunts 70% (1.75m/s)</strong></td>
+                <td>Crucifix has a 50% wider range, can hunt at any sanity using it's ability, without ability it hunts at 70%.</td>
+              </tr>
+              
+              <tr id="yurei">
+                <td><strong>Yurei | Hunts 50% (1.75m/s)</strong></td>
+                <td>can shut a door to drain 15% sanity if they're in the room, only ghost that can fully close front door out of hunt or event, incense traps it for 60 sec.</td>
+              </tr>
+              
+              <tr id="oni">
+                <td><strong>Oni | Hunts 50%  (1.75m/s)</strong></td>
+                <td>Drains more sanity during events, does not do mist ghost event, spends more time being visible during hunts.</td>
+              </tr>
+              
+              <tr id="yokai">
+                <td><strong>Yokai | Hunts 50% - 80% (1.75m/s)</strong></td>
+                <td>More active when talking, can hunt at 80% if you talk near it, during a hunt it only detects your 2.5m away (Normal ghosts detect 10m away).</td>
+              </tr>
+              
+              <tr id="hantu">
+                <td><strong>Hantu | Hunts 50% (1.44m/s - 2.7m/s)</strong></td>
+                <td>Can not turn on gen, Will have freezing breath during a hunt, moves faster in cold rooms and does not speed up in LoS.</td>
+              </tr>
+              
+              <tr id="goryo">
+                <td><strong>Goryo | Hunts 50%  (1.75m/s)</strong></td>
+                <td>Can not change favourite rooms, doesn't roam far from room. D.O.T.S evidence only appears on cams and when a player is not in the room.</td>
+              </tr>
+              
+              <tr id="myling">
+                <td><strong>Myling | Hunts 50% (1.75m/s)</strong></td>
+                <td>More quiet than other ghosts, has to be closer to be heard, active in paromic.</td>
+              </tr>
+
+              <tr id="onryo">
+                <td><strong>Onryo | Hunts 50% (1.75m/s)</strong></td>
+                <td>Will try hunt after blowing out every 3 candle (use one candle as another active flame will prevent it from trying to hunt)</td>
+              </tr>
+
+              <tr id="twins">
+                <td><strong>The Twins | Hunts 50% (1.53m/s - 1.87m/s)</strong></td>
+                <td>Can cover a large area, both interact at the same time, more detail below for the specifics of both.<br><br>
+                𝗗𝗲𝗰𝗼𝘆 𝗧𝘄𝗶𝗻 | Can only interact/give EMF readings (EMF1 - 4). Can't give evidence. Moves at 1.53m/s during hunts.<br><br>
+                𝗧𝗿𝘂𝗲 𝗧𝘄𝗶𝗻 | Can give evidence, moves at 1.87m/s during hunts.</td>
+              </tr>
+
+              <tr id="raiju">
+                <td><strong>Raiju | Hunts 60% (1.75m/s - 2.5m/s)</strong></td>
+                <td>Speed goes to 2.5m/s if in range of active player equipment (flashlights, spirit box, etc). Also makes equipment glitch out 15m away (normal is 10m away)</td>
+              </tr>
+
+              <tr id="obake">
+                <td><strong>Obake | Hunts 50% (1.75m/s)</strong></td>
+                <td>Has a chance to show 6 fingered hand prints or leave 2  fingerprints on a lightswitch, changes ghost model during hunt at least once guaranteed.</td>
+              </tr>
+
+              <tr id="mimic">
+                <td><strong>The Mimic | Hunts 50%  (all speeds)</strong></td>
+                <td>Can copy all other ghost traits, ability to show ghost orbs always (even in 0 evidence), swaps ghost every 30s-2m</td>
+              </tr>
+
+              <tr id="moroi">
+                <td><strong>Moroi | Hunts 50% (1.5m/s - 2.25m/s - 3.71m/s)</strong></td>
+                <td>Will curse the player who hears it through spirit box or paramic, making you lose sanity faster (prevents candles from saving sanity), faster the lower the sanity is, 7.5 sec smudge blindnes.</td>
+              </tr>
+
+              <tr id="deogen">
+                <td><strong>Deogen | Hunts 40% (0.4m/s - 3m/s)</strong></td>
+                <td>33% chance for heavy breathing through spirit box when 1m away from ghost, knows where you are always, the closer it is the slower it moves. Do not hide from it.</td>
+              </tr>
+
+              <tr id="thaye">
+                <td><strong>Thaye | Hunts 75%  (1.7m/s - 2.75m/s)</strong></td>
+                <td>Ages as time goes (every 1-2mins when a player is close), the younger the more active, hunst at 75% when young, 15% when old. Speed is based off age, does not speed up in LoS.</td>
+              </tr>
+          </tbody>
+      </table>
+  <br></div>
+  
+  <!-- End Page Container -->
+</div>
+
+<script src="./ghostHandle.js"></script>
+
+</body>
+</html>

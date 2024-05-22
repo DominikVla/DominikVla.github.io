@@ -1,0 +1,100 @@
+{
+    "ghosts" :{
+        "spirit": {
+            "speed": "normal",
+            "evidence": ["writing", "emf", "box"]
+        },
+        "wraith": {
+            "speed": "normal",
+            "evidence": ["D.O.T.S", "emf", "box"]
+        },
+        "phantom": {
+            "speed": "normal",
+            "evidence": ["D.O.T.S", "uv", "box"]
+        },
+        "poltergeist": {
+            "speed": "normal",
+            "evidence": ["writing", "uv", "box"]
+        },
+        "banshee": {
+            "speed": "normal",
+            "evidence": ["D.O.T.S", "orbs", "uv"]
+        },
+        "jinn": {
+            "speed": ["normal", "fast"],
+            "evidence": ["emf", "uv", "freezing"]
+        },
+        "mare": {
+            "speed": "normal",
+            "evidence": ["writing", "orbs", "box"]
+        },
+        "revenant": {
+            "speed": ["slow", "fast"],
+            "evidence": ["writing", "orbs", "freezing"]
+        },
+        "shade": {
+            "speed": "normal",
+            "evidence": ["writing", "emf", "freezing"]
+        },
+        "demon": {
+            "speed": "normal",
+            "evidence": ["writing", "uv", "freezing"]
+        },
+        "yurei": {
+            "speed": "normal",
+            "evidence": ["D.O.T.S", "orbs", "freezing"]
+        },
+        "oni": {
+            "speed": "normal",
+            "evidence": ["D.O.T.S", "emf", "freezing"]
+        },
+        "yokai": {
+            "speed": "normal",
+            "evidence": ["D.O.T.S", "orbs", "box"]
+        },
+        "hantu": {
+            "speed": ["slow", "normal", "fast"],
+            "evidence": ["orbs", "uv", "freezing"]
+        },
+        "goryo": {
+            "speed": "normal",
+            "evidence": ["D.O.T.S", "emf", "uv"]
+        },
+        "myling": {
+            "speed": "normal",
+            "evidence": ["writing", "emf", "uv"]
+        },
+        "onryo": {
+            "speed": "normal",
+            "evidence": ["orbs", "freezing", "box"]
+        },
+        "twins": {
+            "speed": ["slow", "fast"],
+            "evidence": ["emf", "freezing", "box"]
+        },
+        "raiju": {
+            "speed": ["normal", "fast"],
+            "evidence": ["D.O.T.S", "emf", "orbs"]
+        },
+        "obake": {
+            "speed": "normal",
+            "evidence": ["emf", "orbs", "uv"]
+        },
+        "mimic": {
+            "speed": ["slow", "normal", "fast"],
+            "evidence": ["uv", "freezing", "box", "orbs"]
+        },
+        "moroi": {
+            "speed": ["slow", "normal", "fast"],
+            "evidence": ["writing", "freezing", "box"]
+        },
+        "deogen": {
+            "speed": ["slow", "fast"],
+            "evidence": ["D.O.T.S", "writing", "box"]
+        },
+        "thaye": {
+            "speed": ["slow", "normal", "fast"],
+            "evidence": ["D.O.T.S", "writing", "orbs"]
+        }
+    }
+}

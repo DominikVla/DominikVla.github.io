@@ -1,0 +1,151 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+.container{
+    display: flex;
+    padding: 20px;
+}
+
+body {
+  overflow: hidden !important;
+  background-color: #41507a !important;
+}
+
+.scrollable-table-container {
+    max-height: 80vh; /* adjust as needed */
+    overflow-y: auto;
+}
+
+.deselect{
+  visibility: hidden;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  -ms-transform: translateY(-70%);
+  transform: translateY(-0%);
+  transform: translateX(130%);
+}
+/* Style every 2nd row in the table body */
+table tbody tr:nth-child(even) {
+    background-color: rgb(78, 83, 151) !important;
+}
+/* Additional CSS for the Left Column */
+.left-container {
+    border-radius: 25px;
+    padding: 20px;
+    background-color: rgb(0, 0, 139, 0.37);
+    position: fixed;
+    width: 350px;
+    height: 700px;
+    overflow-y: auto; /* If the content goes beyond the height, make it scrollable */
+    color: rgb(104, 92, 92);
+}
+.ghost-info{
+    background-color:rgb(0, 0, 139, 0.37); 
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+}
+
+
+.left-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.left-section {
+    margin-bottom: 20px;
+}
+
+.left-card {
+    background-color: rgba(0,0,0,0.7); /* Semi-transparent dark background */
+    margin-bottom: 20px;
+}
+
+.left-card-title {
+    font-weight: bold;
+}
+
+.left-card-text {
+    margin-top: 10px;
+}
+
+.btn-custom {
+    background-color: rgb(36, 41, 184);
+    border: 1px solid white;
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.btn-custom:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.btn-custom:active {
+    background-color: rgb(212, 212, 228);
+}
+
+/* Modifying the vertical-center class */
+.vertical-center {
+    display: block; /* Changed from absolute */
+    width: 100%;
+    text-align: center; /* Center the button text */
+    margin-bottom: 20px; /* Add some spacing below the button */
+}
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+input[type="radio"] {
+    left: -999em;
+    position: absolute;
+    
+}
+input[type="radio"]:checked+label{ 
+    font-weight: bold; 
+    background-color: rgb(69, 69, 167);
+}
+
+/*! Firefox Scrollbar*/    
+html {
+    --scrollbarBG: #143e99;
+    --thumbBG: #2581d8;
+
+  }
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+ 
+/* Webkit browser scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #143e99;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2581d8;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #206eb8;
+} 
+
+/* Make table rows invisible */
+.hideRow {
+    display: none;   
+}

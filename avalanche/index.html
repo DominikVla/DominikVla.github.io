@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avalanche</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+  <div id="nav-placeholder"></div> 
+  <header class="jumbotron text-center top-banner">
+    <h1 class="display-4">Welcome to Avalanche</h1>
+    <p class="lead">Providing you with top-of-the-range glass and doors</p>
+  </header>
+
+  <div class="container text-content">
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="font-weight-bold">Welcome to Avalanche Home Improvements</h2>
+        <p class="text-muted">Your expert in glass refurbishment, door frames, window frames, and doors. With a focus on quality and customer satisfaction, we specialize in revitalizing glass, enhancing door frames and window frames, and providing a diverse range of durable doors for homes and businesses.</p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="font-weight-bold">Top-Notch Glass Refurbishment Services</h2>
+        <p class="text-muted">At Avalanche Home Improvements, we offer top-notch glass refurbishment services, ensuring clarity and brilliance for your windows and glass surfaces. Our skilled technicians use advanced techniques and premium materials to deliver flawless results.</p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="font-weight-bold">Stylish and Durable Options</h2>
+        <p class="text-muted">In addition, we provide a variety of stylish and durable door frames, window frames, and doors to suit any space. From modern designs to timeless classics, we have options to complement your style and enhance your property's aesthetics and security.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder" class="footer"></div>
+  <script>
+    $(function(){
+      $("#nav-placeholder").load("../modules/navbar.html");
+      $("#footer-placeholder").load("../modules/footer.html");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/windows.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <header class="jumbotron text-center">
+      <h1 class="display-4">Windows and Window Frames</h1>
+      <p class="lead">Providing you with the best most energy efficient glass and frames.</p>
+  </header>
+
+  <div class="container my-5" id="services-container">
+  </div>
+
+  <div class="container my-5">
+    <p class="text-center">Interested in our services? Don't hesitate to <a href="./contact.html">contact us</a>! We're here to help you enhance your home with our expert solutions.</p>
+  </div>
+  
+  
+  <div id="footer-placeholder"></div>
+
+  <script>
+    $(function(){
+      $("#nav-placeholder").load("../modules/navbar.html");
+      $("#footer-placeholder").load("../modules/footer.html");
+
+      const services = [
+        {
+          title: "Window Refurbishment",
+          description: "Avalanche Home Improvements specialises in glass renovations, restoring your windows to their former glory. Our services not only rejuvenate your windows, but they also enhance energy efficiency, saving you on heating costs and adding value to your property should you decide to sell your home. <br>Moreover, we provide a range of aesthetic enhancements, including icing, tinting, and ornamental films, allowing you to customise the look of your windows to suit your style and preferences.",
+          imageUrl: "../img/windows.jpg"
+        },
+        {
+          title: "Window and Door Frames",
+          description: "In addition, we offer comprehensive services for window and door frames, presenting a diverse range of options including wooden, vinyl, aluminium, fibreglass, and composite frames. We understand the significance of selecting the perfect frames to enhance your home's aesthetics and functionality. That's why we provide support to assist you in choosing the ideal frames that will breathe new life into your home.",
+          imageUrl: "../img/frames.jpg"
+        },
+        {
+            title: "PVC and Composite Doors",
+            description: "Doors play a pivotal role in every home, ensuring security, energy efficiency, and enhancing the overall ambiance. At Avalanche Home Improvement, we recognize the importance of doors, offering a selection of both uPVC and Composite options. Our uPVC doors boast excellent security features, including a multi-point locking mechanism and reinforced frames, although they offer fewer aesthetic choices. On the other hand, our composite doors are renowned for their durability, enhanced security, and superior heat retention, offering a wide array of aesthetic options to perfectly complement your home's style.",
+            imageUrl: "../img/doors.jpg"
+        },        {
+            title: "Conservatory Windows & Doors improvements",
+            description: "Transform your conservatory into a haven of comfort and style with Avalanche Home Improvement's expert window and door solutions. Our specialised services cater to enhancing the functionality and aesthetics of conservatory spaces, ensuring year-round enjoyment. With our tailored approach, we offer a diverse range of window options, including energy-efficient glass and customizable frames, designed to optimise natural light while providing superior insulation. Complementing these, our selection of doors, ranging from sleek uPVC designs to durable composite options, ensures security, thermal efficiency, and seamless integration with your conservatory's architecture. Elevate your conservatory experience with our comprehensive solutions, tailored to enhance both the beauty and practicality of your space. <b>NOTE: We only deal with the windows and doors of your conservatory.</b>",
+            imageUrl: "../img/conservatories.jpg"
+        }
+      ];
+
+      const servicesContainer = $("#services-container");
+
+      services.forEach(service => {
+        const serviceHtml = `
+          <div class="service-section row align-items-center mb-5">
+            <div class="col-md-6 order-md-${services.indexOf(service) % 2 === 0 ? 1 : 2}">
+              <img src="${service.imageUrl}" class="img-fluid rounded" alt="${service.title}">
+            </div>
+            <div class="col-md-6 order-md-${services.indexOf(service) % 2 === 0 ? 2 : 1}">
+              <h2>${service.title}</h2>
+              <p>${service.description}</p>
+            </div>
+          </div>
+        `;
+        servicesContainer.append(serviceHtml);
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

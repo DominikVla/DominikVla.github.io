@@ -2,99 +2,123 @@
     "ghosts" :{
         "spirit": {
             "speed": "normal",
-            "evidence": ["writing", "emf", "box"]
+            "evidence": ["writing", "emf", "box"],
+            "desc": "If sanity reaches 50% smudge the ghost room and if it doesn't hunt for the next 3 mins it might be a spirit, not guaranteed."
         },
         "wraith": {
             "speed": "normal",
-            "evidence": ["D.O.T.S", "emf", "box"]
+            "evidence": ["D.O.T.S", "emf", "box"],
+            "desc": "Can't step in salt. Can also randomly teleport to a player producing an EMF 2 reading when doing so."
         },
         "phantom": {
             "speed": "normal",
-            "evidence": ["D.O.T.S", "uv", "box"]
+            "evidence": ["D.O.T.S", "uv", "box"],
+            "desc": "Vanishes if you take a picture of it, spends more time being invisible during hunts."
         },
         "poltergeist": {
             "speed": "normal",
-            "evidence": ["writing", "uv", "box"]
+            "evidence": ["writing", "uv", "box"],
+            "desc": "Throws objects more frequently and at higher speeds. Is also the only ghost that can throw multiple objects at once."
         },
         "banshee": {
             "speed": "normal",
-            "evidence": ["D.O.T.S", "orbs", "uv"]
+            "evidence": ["D.O.T.S", "orbs", "uv"],
+            "desc": "Has a chance to scream through paramic, will go only after target player unless they're outside, will only base sanity based off of target sanity."
         },
         "jinn": {
             "speed": ["normal", "fast"],
-            "evidence": ["emf", "uv", "freezing"]
+            "evidence": ["emf", "uv", "freezing"],
+            "desc": "Can not turn off the gen, speed winds up to 2.5m/s if a player is in LoS"
         },
         "mare": {
             "speed": "normal",
-            "evidence": ["writing", "orbs", "box"]
+            "evidence": ["writing", "orbs", "box"],
+            "desc": "Can instantly turn off lights you turn on, can't turn lights on, if lights are on it hunts at 60%, if they're off it hunts at 40%. Has a chance to instantly turn off the lights a player turns on"
         },
         "revenant": {
             "speed": ["slow", "fast"],
-            "evidence": ["writing", "orbs", "freezing"]
+            "evidence": ["writing", "orbs", "freezing"],
+            "desc": "Will run at 3m/s if a player is sensed (Voice, LoS, Equipment) and will only slow down when it reaches the players last known location"
         },
         "shade": {
             "speed": "normal",
-            "evidence": ["writing", "emf", "freezing"]
+            "evidence": ["writing", "emf", "freezing"],
+            "desc": "Can not produce EMF 2, 3 or 5 while someone else is in the room, can not hunt if someone is in ghost room. Generally a shy ghost."
         },
         "demon": {
             "speed": "normal",
-            "evidence": ["writing", "uv", "freezing"]
+            "evidence": ["writing", "uv", "freezing"],
+            "desc": "Crucifix has a 50% wider range, can hunt at any sanity using it's ability, without ability it hunts at 70%."
         },
         "yurei": {
             "speed": "normal",
-            "evidence": ["D.O.T.S", "orbs", "freezing"]
+            "evidence": ["D.O.T.S", "orbs", "freezing"],
+            "desc": "Can shut a door to drain 15% sanity if they're in the room, only ghost that can fully close front door out of hunt or event, incense traps it for 60 sec."
         },
         "oni": {
             "speed": "normal",
-            "evidence": ["D.O.T.S", "emf", "freezing"]
+            "evidence": ["D.O.T.S", "emf", "freezing"],
+            "desc": "Drains more sanity during events, does not do mist ghost event, spends more time being visible during hunts."
         },
         "yokai": {
             "speed": "normal",
-            "evidence": ["D.O.T.S", "orbs", "box"]
+            "evidence": ["D.O.T.S", "orbs", "box"],
+            "desc": "More active when talking, can hunt at 80% if you talk near it, during a hunt it only detects your 2.5m away (Normal ghosts detect 10m away)."
         },
         "hantu": {
             "speed": ["slow", "normal", "fast"],
-            "evidence": ["orbs", "uv", "freezing"]
+            "evidence": ["orbs", "uv", "freezing"],
+            "desc": "Can not turn on gen, Will have freezing breath during a hunt, moves faster in cold rooms and does not speed up in LoS."
         },
         "goryo": {
             "speed": "normal",
-            "evidence": ["D.O.T.S", "emf", "uv"]
+            "evidence": ["D.O.T.S", "emf", "uv"],
+            "desc": "Can not change favourite rooms, doesn't roam far from room. D.O.T.S evidence only appears on cams and when a player is not in the room."
         },
         "myling": {
             "speed": "normal",
-            "evidence": ["writing", "emf", "uv"]
+            "evidence": ["writing", "emf", "uv"],
+            "desc": "More quiet than other ghosts, has to be closer to be heard, active in paromic."
         },
         "onryo": {
             "speed": "normal",
-            "evidence": ["orbs", "freezing", "box"]
+            "evidence": ["orbs", "freezing", "box"],
+            "desc": "Will try hunt after blowing out every 3 candle (use one candle as another active flame will prevent it from trying to hunt)"
         },
         "twins": {
             "speed": ["slow", "fast"],
-            "evidence": ["emf", "freezing", "box"]
+            "evidence": ["emf", "freezing", "box"],
+            "desc": "Can cover a large area, both interact at the same time, more detail below for the specifics of both. \n\n Decoy Twin | Can only interact/give EMF readings (EMF1 - 4). Can't give evidence. Moves at 1.53m/s during hunts.\n\nReal Twin | Can give evidence, moves at 1.87m/s during hunts."
         },
         "raiju": {
             "speed": ["normal", "fast"],
-            "evidence": ["D.O.T.S", "emf", "orbs"]
+            "evidence": ["D.O.T.S", "emf", "orbs"],
+            "desc": "Speed goes to 2.5m/s if in range of active player equipment (flashlights, spirit box, etc). Also makes equipment glitch out 15m away (normal is 10m away)"
         },
         "obake": {
             "speed": "normal",
-            "evidence": ["emf", "orbs", "uv"]
+            "evidence": ["emf", "orbs", "uv"],
+            "desc": "Has a chance to show 6 fingered hand prints or leave 2 fingerprints on a lightswitch, changes ghost model during hunt at least once guaranteed."
         },
         "mimic": {
             "speed": ["slow", "normal", "fast"],
-            "evidence": ["uv", "freezing", "box", "orbs"]
+            "evidence": ["uv", "freezing", "box", "orbs"],
+            "desc": "Can copy all other ghost traits, ability to show ghost orbs always (even in 0 evidence), swaps ghost every 30s-2m"
         },
         "moroi": {
             "speed": ["slow", "normal", "fast"],
-            "evidence": ["writing", "freezing", "box"]
+            "evidence": ["writing", "freezing", "box"],
+            "desc": "Will curse the player who hears it through spirit box or paramic, making you lose sanity faster (prevents candles from saving sanity), faster the lower the sanity is, 7.5 sec smudge blindnes."
         },
         "deogen": {
             "speed": ["slow", "fast"],
-            "evidence": ["D.O.T.S", "writing", "box"]
+            "evidence": ["D.O.T.S", "writing", "box"],
+            "desc": "33% chance for heavy breathing through spirit box when 1m away from ghost, knows where you are always, the closer it is the slower it moves. Do not hide from it."
         },
         "thaye": {
             "speed": ["slow", "normal", "fast"],
-            "evidence": ["D.O.T.S", "writing", "orbs"]
+            "evidence": ["D.O.T.S", "writing", "orbs"],
+            "desc": "Ages as time goes (every 1-2mins when a player is close), the younger the more active, hunts at 75% when young, 15% when old. Speed is based off age, does not speed up in LoS."
         }
     }
 }
